@@ -51,7 +51,7 @@ module.exports = function (size, ifile, option) {
                     i_files.forEach(function(i_ilist){
                       var fileComponents = path.parse(l_filename);
                       var fileRegex = new RegExp('/' + fileComponents.dir + fileComponents.name + '[a-zA-Z_0-9]*' + fileComponents.ext, "g");
-                      var result = fs.readFileSync(i_ilist,'utf8').replace(fileRegex ,"g"), function(sfile_name){
+                      var result = fs.readFileSync(i_ilist,'utf8').replace(fileRegex, function(sfile_name){
                           return sfile_name.replace(fileRegex, '/' + l_md5_filename);
                       });
                       fs.writeFileSync(i_ilist, result, 'utf8');
